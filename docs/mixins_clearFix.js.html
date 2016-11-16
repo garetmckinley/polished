@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>mixins/clearFix.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,25 +27,56 @@
 
 <div id="main">
     
+    <h1 class="page-title">mixins/clearFix.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Mixins */
 
+/**
+ * CSS to contain a float (credit to CSSMojo)
+ * @static
+ * @param {string} [parent = &amp;] - Optional parent selector that can be used when `&amp;` is not supported.
+ * @return {Object} CSS as JS.
+ * @example
+ * // Styles as object usage
+ * PENDING...
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${clearFix()}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * '&amp;::after': {
+ *   'clear': 'both',
+ *   'content': '',
+ *   'display': 'table'
+ * }
+ */
 
+function clearFix(parent = `&amp;`) {
+  const pseudoSelector = `${parent}::after`
+  return {
+    [pseudoSelector]: {
+      'clear': 'both',
+      'content': '',
+      'display': 'table'
+    }
+  }
+}
 
-
-
-
-
-
-
-    
-
-
-
+export default clearFix
+</code></pre>
+        </article>
+    </section>
 
 
 
